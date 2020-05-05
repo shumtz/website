@@ -1,20 +1,25 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "API for get data of real problems",
+  "main": "src/app.js",
   "scripts": {
-    "start": "node ./src/test",
-    "dev": "nodemon ./src/app",
-    "eslint": "eslint ./src/**/*.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "NODE_ENV=production node ./src/app",
+    "dev": "NODE_ENV=development nodemon ./src/app",
+    "eslint": "eslint ./src/**/*.js"
   },
-  "keywords": [],
+  "keywords": [
+    "healthworlddata",
+    "health"
+  ],
   "author": "Health World Data",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
-    "body-parser": "^1.19.0",
-    "express": "^4.17.1"
+    "dotenv": "^8.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.3",
+    "express": "^4.17.1",
+    "prettier": "^2.0.5"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
