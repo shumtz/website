@@ -4,9 +4,9 @@ module.exports = {
   development: {
     client: 'postgresql',
     connection: {
-      database: process.env.DATABASE_NAME || 'database',
+      database: process.env.DATABASE_NAME || 'postgres',
       user: process.env.DATABASE_USER || 'postgres',
-      password: process.env.DATABASE_PASSWORD || 'docker',
+      password: process.env.DATABASE_PASSWORD || 'password',
     },
     migrations: {
       directory: './src/database/migrations',
