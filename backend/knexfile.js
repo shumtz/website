@@ -1,8 +1,10 @@
 // Update with your database settings.
 
+require('dotenv').config();
+
 module.exports = {
   development: {
-    client: 'postgresql',
+    client: 'pg',
     connection: {
       database: process.env.DATABASE_NAME || 'postgres',
       user: process.env.DATABASE_USER || 'postgres',
@@ -10,6 +12,9 @@ module.exports = {
     },
     migrations: {
       directory: './src/database/migrations',
+    },
+    seeds: {
+      directory: './src/database/seeds',
     },
     useNullAsDefault: true,
   },
