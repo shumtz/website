@@ -2,7 +2,15 @@
 ### Iniciando
 Requisitos: [Node.js](https://nodejs.org/en/download/)
 
-Instala dependências do projeto.
+Banco de dados:
+- Crie a ".env" semelhante à ".env.example" com database, port, etc..
+- Use npx knex migrate:latest
+- Se estiver usando docker, use "docker-compose up -d", caso contrário coloque o usuário e senha que você tem no seu banco
+- Inicie o projeto com npm start.
+
+#
+
+Instale dependências do projeto.
 ``
 npm install
 ``
@@ -21,5 +29,3 @@ Confere se o a sintaxe do código está escrito conforme definido.
 ``
 npm run eslint
 ``
-#
-Eslint ([https://github.com/airbnb/javascript](https://github.com/airbnb/javascript))

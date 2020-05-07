@@ -19,6 +19,8 @@ module.exports = {
     ecmaVersion: 2018,
   },
   rules: {
-    'prettier/prettier': 'error'
+    'prettier/prettier': 'error',
+    'no-console': 'off',
+    'consistent-return': 'off'
   },
 };
