@@ -1,6 +1,6 @@
 exports.up = function up(knex) {
   return knex.schema.createTable('doctors', (table) => {
-    table.increments();
+    table.string('id').primary();
 
     table.string('name').notNullable();
     table.string('uf').notNullable();
@@ -10,7 +10,9 @@ exports.up = function up(knex) {
     table.string('speciality').notNullable();
     table.string('situation').notNullable();
     table.string('actuationArea');
-    table.timestamps();
+
+    table.timestamp('created_at').defaultTo(knex.fn.now());
+    table.timestamp('updated_at').defaultTo(knex.fn.now());
   });
 };
 

@@ -5,7 +5,7 @@
 
 exports.up = function up(knex) {
   return knex.schema.createTable('patients', (table) => {
-    table.increments();
+    table.string('id').primary();
     table.string('name').notNullable();
 
     table.integer('age').notNullable();
@@ -16,7 +16,8 @@ exports.up = function up(knex) {
     table.string('problem').notNullable();
     table.string('historic').notNullable();
 
-    table.timestamps();
+    table.timestamp('created_at').defaultTo(knex.fn.now());
+    table.timestamp('updated_at').defaultTo(knex.fn.now());
   });
 };
 

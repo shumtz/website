@@ -1,0 +1,237 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "API REST DOCTORS",
+        "description": "Node.js And Express",
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        }
+    },
+    "servers": [
+        {
+            "url": "/api",
+            "description": "Local Dev"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Doctors",
+            "description": "API for Doctors in the system"
+        }
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/doctors": {
+            "get": {
+                "tags": [
+                    "Doctors"
+                ],
+                "summary": "Get all Doctors in system",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Doctors"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Doctors"
+                ],
+                "summary": "Create a new doctor in system",
+                "requestBody": {
+                    "description": "doctor Object",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/doctor"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/id"
+                        }
+                    },
+                    "400": {
+                        "description": "Failed. Bad post data."
+                    }
+                }
+            }
+        },
+        "/doctor/{id}": {
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "description": "ID of the doctor that we want to match",
+                    "type": "string"
+                }
+            ],
+            "get": {
+                "tags": [
+                    "doctor"
+                ],
+                "summary": "Get doctor with given ID",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "description": "doctor with id",
+                        "schema": {
+                            "$ref": "#/definitions/id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/doctor"
+                        }
+                    },
+                    "404": {
+                        "description": "Failed. doctor not found."
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update doctor with given ID",
+                "tags": [
+                    "doctor"
+                ],
+                "requestBody": {
+                    "description": "doctor Object",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/doctor"
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "description": "doctor with new values of properties",
+                        "schema": {
+                            "$ref": "#/definitions/id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/doctor"
+                        }
+                    },
+                    "400": {
+                        "description": "Failed. Bad post data."
+                    },
+                    "404": {
+                        "description": "Failed. doctor not found."
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete doctor with given ID",
+                "tags": [
+                    "doctor"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "description": "Delete doctor with id",
+                        "schema": {
+                            "$ref": "#/definitions/id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/id"
+                        }
+                    },
+                    "404": {
+                        "description": "Failed. doctor not found."
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "id": {
+            "properties": {
+                "uuid": {
+                    "type": "string"
+                }
+            }
+        },
+        "doctor": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "uf": {
+                    "type": "string"
+                },
+                "municipality": {
+                    "type": "string"
+                },
+                "crm": {
+                    "type": "string"
+                },
+                "subscriptionType": {
+                    "type": "string"
+                },
+                "speciality": {
+                    "type": "string"
+                },
+                "situation": {
+                    "type": "string"
+                },
+                "actuationArea": {
+                    "type": "string"
+                }
+            }
+        },
+        "Doctors": {
+            "type": "object",
+            "properties": {
+                "Doctors": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "#/definitions/doctor"
+                    }
+                }
+            }
+        }
+    }
+}
