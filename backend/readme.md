@@ -29,3 +29,7 @@ Confere se o a sintaxe do código está escrito conforme definido.
 ``
 npm run eslint
 ``
+Rotas Swagger API:
+[Doctors](http://127.0.0.1:3333/api-docs/doctor)
+[Patients](http://127.0.0.1:3333/api-docs/patient)
+

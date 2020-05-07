@@ -1,3 +1,4 @@
+const crypto = require('crypto');
 const connection = require('../database/connection');
 
 module.exports = {
@@ -9,7 +10,6 @@ module.exports = {
   async create(req, res, next) {
     try {
       const {
-        id,
         name,
         uf,
         municipality,
@@ -20,7 +20,9 @@ module.exports = {
         actuationArea,
       } = req.body;
 
-      connection('doctors').insert({
+      const id = crypto.randomBytes(4).toString('HEX');
+
+      await connection('doctors').insert({
         id,
         name,
         uf,

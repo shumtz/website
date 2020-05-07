@@ -5,7 +5,7 @@
 
 exports.up = function up(knex) {
   return knex.schema.createTable('patients', (table) => {
-    table.increments();
+    table.string('id').primary();
     table.string('name').notNullable();
 
     table.integer('age').notNullable();
