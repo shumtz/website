@@ -1,4 +1,5 @@
 const crypto = require('crypto');
+const bcrypt = require('bcrypt');
 const connection = require('../database/connection');
 
 module.exports = {
@@ -12,6 +13,8 @@ module.exports = {
       const {
         name,
         age,
+        email,
+        password,
         city,
         bloodType,
         weight,
@@ -19,46 +22,65 @@ module.exports = {
         problem,
         historic,
       } = req.body;
+      const passwordHash = await bcrypt.hash(password, 8);
 
       const id = crypto.randomBytes(4).toString('HEX');
 
-      await connection('patients').insert({
+      const data = {
         id,
         name,
         age,
+        email,
+        password: passwordHash,
         city,
         bloodType,
         weight,
         height,
         problem,
         historic,
-      });
+      };
 
-      return res.status(201).send();
+      await connection('patients').insert(data);
+
+      return res.status(201).send(data);
     } catch (error) {
       next(error);
     }
   },
+
   async update(req, res, next) {
     try {
       const { id } = req.params;
-      const { name, age, city, weight, height, problem, historic } = req.body;
+      const {
+        name,
+        age,
+        email,
+        password,
+        city,
+        weight,
+        height,
+        problem,
+        historic,
+      } = req.body;
 
-      await connection('patients')
-        .update({
-          name,
-          age,
-          city,
-          weight,
-          height,
-          problem,
-          historic,
-        })
-        .where({
-          id,
-        });
+      const passwordHash = await bcrypt.hash(password, 8);
 
-      return res.send();
+      const data = {
+        name,
+        email,
+        password: passwordHash,
+        age,
+        city,
+        weight,
+        height,
+        problem,
+        historic,
+      };
+
+      await connection('patients').update(data).where({
+        id,
+      });
+      return res.json(data);
     } catch (error) {
       next(error);
     }
@@ -70,6 +92,8 @@ module.exports = {
         name,
         age,
         city,
+        email,
+        password,
         bloodType,
         weight,
         height,
@@ -78,7 +102,18 @@ module.exports = {
       } = req.body;
 
       const data = await connection('patients')
-        .select(name, age, city, bloodType, weight, height, problem, historic)
+        .select(
+          name,
+          age,
+          city,
+          email,
+          password,
+          bloodType,
+          weight,
+          height,
+          problem,
+          historic
+        )
         .where({
           id,
         })

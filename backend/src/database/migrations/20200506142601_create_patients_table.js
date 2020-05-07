@@ -7,7 +7,8 @@ exports.up = function up(knex) {
   return knex.schema.createTable('patients', (table) => {
     table.string('id').primary();
     table.string('name').notNullable();
-
+    table.string('email').notNullable();
+    table.string('password').notNullable();
     table.integer('age').notNullable();
     table.string('city').notNullable();
     table.string('bloodType').notNullable();
@@ -16,8 +17,8 @@ exports.up = function up(knex) {
     table.string('problem').notNullable();
     table.string('historic').notNullable();
 
-    table.timestamp('created_at').defaultTo(knex.fn.now());
-    table.timestamp('updated_at').defaultTo(knex.fn.now());
+    table.timestamp('createdAt').defaultTo(knex.fn.now());
+    table.timestamp('updatedAt').defaultTo(knex.fn.now());
   });
 };
 

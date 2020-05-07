@@ -1,4 +1,5 @@
 const crypto = require('crypto');
+const bcrypt = require('bcrypt');
 const connection = require('../database/connection');
 
 module.exports = {
@@ -11,6 +12,8 @@ module.exports = {
     try {
       const {
         name,
+        email,
+        password,
         uf,
         municipality,
         crm,
@@ -21,10 +24,13 @@ module.exports = {
       } = req.body;
 
       const id = crypto.randomBytes(4).toString('HEX');
+      const passwordHash = await bcrypt.hash(password, 8);
 
       await connection('doctors').insert({
         id,
         name,
+        email,
+        password: passwordHash,
         uf,
         municipality,
         crm,
@@ -42,11 +48,22 @@ module.exports = {
   async update(req, res, next) {
     try {
       const { id } = req.params;
-      const { name, municipality, situation, subscriptionType } = req.body;
+      const {
+        name,
+        municipality,
+        email,
+        password,
+        situation,
+        subscriptionType,
+      } = req.body;
+
+      const passwordHash = await bcrypt.hash(password, 8);
 
       await connection('doctors')
         .update({
           name,
+          email,
+          password: passwordHash,
           municipality,
           situation,
           subscriptionType,
@@ -66,6 +83,8 @@ module.exports = {
       const {
         name,
         uf,
+        email,
+        password,
         municipality,
         crm,
         subscriptionType,
@@ -78,6 +97,8 @@ module.exports = {
         .select(
           name,
           uf,
+          email,
+          password,
           municipality,
           crm,
           subscriptionType,

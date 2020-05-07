@@ -1,17 +1,12 @@
 require('dotenv').config();
-
 const express = require('express');
 
 const app = express();
 
 const cors = require('cors');
-
 const swaggerUi = require('swagger-ui-express');
-
 const routes = require('./routes.js');
-
 const swaggerPatient = require('./util/patient.json');
-
 const swaggerDoctor = require('./util/doctor.json');
 
 const port = process.env.PORT || 3333;
