@@ -40,13 +40,14 @@ module.exports = {
   async update(req, res, next) {
     try {
       const { id } = req.params;
-      const { name, age, city, weight, height } = req.body;
+      const { name, municipality, situation, subscriptionType } = req.body;
 
       await connection('doctors')
         .update({
           name,
           municipality,
-          situation        
+          situation,
+          subscriptionType        
         })
         .where({
           id,
