@@ -1,0 +1,240 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "API REST PATIENTS",
+        "description": "Node.js And Express",
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        }
+    },
+    "servers": [
+        {
+            "url": "/api",
+            "description": "Local Dev"
+        }
+    ],
+    "tags": [
+        {
+            "name": "patients",
+            "description": "API for patients in the system"
+        }
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/patients": {
+            "get": {
+                "tags": [
+                    "patients"
+                ],
+                "summary": "Get all patients in system",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/patients"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "patients"
+                ],
+                "summary": "Create a new patient in system",
+                "requestBody": {
+                    "description": "patient Object",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/patient"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/id"
+                        }
+                    },
+                    "400": {
+                        "description": "Failed. Bad post data."
+                    }
+                }
+            }
+        },
+        "/patient/{id}": {
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "description": "ID of the patient that we want to match",
+                    "type": "string"
+                }
+            ],
+            "get": {
+                "tags": [
+                    "patient"
+                ],
+                "summary": "Get patient with given ID",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "description": "patient with id",
+                        "schema": {
+                            "$ref": "#/definitions/id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/patient"
+                        }
+                    },
+                    "404": {
+                        "description": "Failed. patient not found."
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update patient with given ID",
+                "tags": [
+                    "patient"
+                ],
+                "requestBody": {
+                    "description": "patient Object",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/patient"
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "description": "patient with new values of properties",
+                        "schema": {
+                            "$ref": "#/definitions/id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/patient"
+                        }
+                    },
+                    "400": {
+                        "description": "Failed. Bad post data."
+                    },
+                    "404": {
+                        "description": "Failed. patient not found."
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete patient with given ID",
+                "tags": [
+                    "patient"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "description": "Delete patient with id",
+                        "schema": {
+                            "$ref": "#/definitions/id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/id"
+                        }
+                    },
+                    "404": {
+                        "description": "Failed. patient not found."
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "id": {
+            "properties": {
+                "uuid": {
+                    "type": "string"
+                }
+            }
+        },
+        "patient": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "number"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "age": {
+                    "type": "number"
+                },
+                "city": {
+                    "type": "string"
+                },
+                "bloodType": {
+                    "type": "string"
+                },
+                "weight": {
+                    "type": "number"
+                },
+                "height": {
+                    "type": "string"
+                },
+                "problem": {
+                    "type": "string"
+                },
+                "historic": {
+                    "type": "string"
+                }
+            }
+        },
+        "patients": {
+            "type": "object",
+            "properties": {
+                "patients": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "#/definitions/patient"
+                    }
+                }
+            }
+        }
+    }
+}

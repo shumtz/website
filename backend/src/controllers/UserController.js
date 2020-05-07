@@ -1,35 +1,35 @@
 const connection = require('../database/connection');
 
 module.exports = {
-  async all(req, res) {
-    const doctors = await connection('doctors').select('*');
+  async index(req, res) {
+    const patients = await connection('patients').select('*');
 
-    return res.json(doctors);
+    return res.json(patients);
   },
   async create(req, res, next) {
     try {
       const {
         id,
         name,
-        uf,
-        municipality,
-        crm,
-        subscriptionType,
-        speciality,
-        situation,
-        actuationArea,
+        age,
+        city,
+        bloodType,
+        weight,
+        height,
+        problem,
+        historic,
       } = req.body;
 
-      connection('doctors').insert({
+      await connection('patients').insert({
         id,
         name,
-        uf,
-        municipality,
-        crm,
-        subscriptionType,
-        speciality,
-        situation,
-        actuationArea,
+        age,
+        city,
+        bloodType,
+        weight,
+        height,
+        problem,
+        historic,
       });
 
       return res.status(201).send();
@@ -40,14 +40,15 @@ module.exports = {
   async update(req, res, next) {
     try {
       const { id } = req.params;
-      const { name, municipality, situation, subscriptionType } = req.body;
+      const { name, age, city, weight, height } = req.body;
 
-      await connection('doctors')
+      await connection('patients')
         .update({
           name,
-          municipality,
-          situation,
-          subscriptionType        
+          age,
+          city,
+          weight,
+          height,
         })
         .where({
           id,
@@ -63,17 +64,17 @@ module.exports = {
       const { id } = req.params;
       const {
         name,
-        uf,
-        municipality,
-        crm,
-        subscriptionType,
-        speciality,
-        situation,
-        actuationArea,
+        age,
+        city,
+        bloodType,
+        weight,
+        height,
+        problem,
+        historic,
       } = req.body;
 
-      const data = await connection('doctors')
-        .select(name, uf, municipality, crm, subscriptionType, speciality, situation, actuationArea)
+      const data = await connection('patients')
+        .select(name, age, city, bloodType, weight, height, problem, historic)
         .where({
           id,
         })
@@ -88,7 +89,7 @@ module.exports = {
     try {
       const { id } = req.params;
 
-      await connection('doctors')
+      await connection('patients')
         .where({
           id,
         })

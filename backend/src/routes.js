@@ -1,24 +1,23 @@
 const { Router } = require('express');
 
 const routes = Router();
-
-const userController = require('./controllers/userController');
-const doctorsController = require('./controllers/doctorsController');
+const UserController = require('./controllers/UserController');
+const DoctorsController = require('./controllers/DoctorsController');
 
 // patients
 routes
-  .get('/patients', userController.all)
-  .get('/patient/:id', userController.getById)
-  .post('/patients', userController.create)
-  .put('/patient/:id', userController.update)
-  .delete('/patient/:id', userController.delete);
+  .get('/patients', UserController.index)
+  .get('/patient/:id', UserController.getById)
+  .post('/patients', UserController.create)
+  .put('/patient/:id', UserController.update)
+  .delete('/patient/:id', UserController.delete);
 
 // doctors
 routes
-.get('/doctors', doctorsController.all)
-  .get('/doctor/:id', doctorsController.getById)
-  .post('/doctors', doctorsController.create)
-  .put('/doctor/:id', doctorsController.update)
-  .delete('/doctor/:id', doctorsController.delete);
+  .get('/doctors', DoctorsController.index)
+  .get('/doctor/:id', DoctorsController.getById)
+  .post('/doctors', DoctorsController.create)
+  .put('/doctor/:id', DoctorsController.update)
+  .delete('/doctor/:id', DoctorsController.delete);
 
 module.exports = routes;
