@@ -196,31 +196,28 @@
         "doctor": {
             "type": "object",
             "properties": {
-                "id": {
-                    "type": "number"
-                },
                 "name": {
                     "type": "string"
                 },
-                "age": {
-                    "type": "number"
-                },
-                "city": {
+                "uf": {
                     "type": "string"
                 },
-                "bloodType": {
+                "municipality": {
                     "type": "string"
                 },
-                "weight": {
-                    "type": "number"
-                },
-                "height": {
+                "crm": {
                     "type": "string"
                 },
-                "problem": {
+                "subscriptionType": {
                     "type": "string"
                 },
-                "historic": {
+                "speciality": {
+                    "type": "string"
+                },
+                "situation": {
+                    "type": "string"
+                },
+                "actuationArea": {
                     "type": "string"
                 }
             }
