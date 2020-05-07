@@ -22,8 +22,9 @@ app.use('/api', routes);
 app.use('/api-docs/patient', swaggerUi.serve, swaggerUi.setup(swaggerPatient));
 app.use('/api-docs/doctor', swaggerUi.serve, swaggerUi.setup(swaggerDoctor));
 app.use((error, req, res, next) => {
-  res.statusCode(error.status || 500);
+  res.status(error.status || 500);
   res.json({ error: error.message });
+  next();
 });
 
 app.listen(port, () => {
