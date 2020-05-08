@@ -40,26 +40,26 @@ module.exports = {
         actuationArea,
       });
 
-            
-      if(doctor){
-        res.cookie("email", email,{
-          maxAge: 7 * 24 * 60 * 60000
-        }).cookie("password",passwordHash,{
-          maxAge: 7 * 24 * 60 * 60000
-        })
-        return res.status(201).send(data);
+      if (doctor) {
+        res
+          .cookie('email', email, {
+            maxAge: 7 * 24 * 60 * 60000,
+          })
+          .cookie('password', passwordHash, {
+            maxAge: 7 * 24 * 60 * 60000,
+          });
+        return res.status(201).send();
       }
 
-      return res.status(201).send();
+      return res.status(201).send(doctor);
     } catch (error) {
       next(error);
     }
   },
   async update(req, res, next) {
     try {
-
-      if(!req.cookies.email && !req.cookies.password){
-        res.json({ msg: 'cookies not found' })
+      if (!req.cookies.email && !req.cookies.password) {
+        res.json({ msg: 'cookies not found' });
       }
 
       const { id } = req.params;
@@ -94,9 +94,8 @@ module.exports = {
   },
   async getById(req, res, next) {
     try {
-
-      if(!req.cookies.email && !req.cookies.password){
-        res.json({ msg: 'cookies not found' })
+      if (!req.cookies.email && !req.cookies.password) {
+        res.json({ msg: 'cookies not found' });
       }
 
       const { id } = req.params;
@@ -138,9 +137,8 @@ module.exports = {
   },
   async delete(req, res, next) {
     try {
-
-      if(!req.cookies.email && !req.cookies.password){
-        res.json({ msg: 'cookies not found' })
+      if (!req.cookies.email && !req.cookies.password) {
+        res.json({ msg: 'cookies not found' });
       }
 
       const { id } = req.params;
