@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt');
 const connection = require('../database/connection');
-const generateId = require('../util/generateId')
+const generateId = require('../util/generateId');
 
 module.exports = {
   async index(req, res) {
@@ -23,7 +23,7 @@ module.exports = {
         actuationArea,
       } = req.body;
 
-      const id = generateId()
+      const id = generateId();
       const passwordHash = await bcrypt.hash(password, 8);
 
       await connection('doctors').insert({

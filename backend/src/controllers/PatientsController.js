@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt');
 const connection = require('../database/connection');
-const generateId = require('../util/generateId')
+const generateId = require('../util/generateId');
 
 module.exports = {
   async index(req, res) {
@@ -24,7 +24,7 @@ module.exports = {
       } = req.body;
       const passwordHash = await bcrypt.hash(password, 8);
 
-      const id = generateId()
+      const id = generateId();
 
       const data = {
         id,
