@@ -40,9 +40,17 @@ module.exports = {
         historic,
       };
 
-      await connection('patients').insert(data);
+      const patient = await connection('patients').insert(data);
+      
+      if(patient){
+        res.cookie("email", data.email,{
+          maxAge: 7 * 24 * 60 * 60000
+        }).cookie("password",passwordHash,{
+          maxAge: 7 * 24 * 60 * 60000
+        })
+        return res.status(201).send(data);
+      }
 
-      return res.status(201).send(data);
     } catch (error) {
       next(error);
     }
@@ -50,6 +58,11 @@ module.exports = {
 
   async update(req, res, next) {
     try {
+
+      if(!req.cookies.email && !req.cookies.password){
+        res.json({ msg: 'cookies not found' })
+      }
+
       const { id } = req.params;
       const {
         name,
@@ -87,6 +100,11 @@ module.exports = {
   },
   async getById(req, res, next) {
     try {
+
+      if(!req.cookies.email && !req.cookies.password){
+        res.json({ msg: 'cookies not found' })
+      }
+
       const { id } = req.params;
       const {
         name,
@@ -126,6 +144,11 @@ module.exports = {
   },
   async delete(req, res, next) {
     try {
+
+      if(!req.cookies.email && !req.cookies.password){
+        res.json({ msg: 'cookies not found' })
+      }
+      
       const { id } = req.params;
 
       await connection('patients')
