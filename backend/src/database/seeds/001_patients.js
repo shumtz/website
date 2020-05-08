@@ -8,6 +8,8 @@ exports.seed = (knex) => {
         {
           id: 1,
           name: 'Diego Santana',
+          email: 'pessoa1@pessoa1.com',
+          password: 'pessoa1',
           age: 25,
           city: 'Mafra',
           bloodType: 'AB',
@@ -19,6 +21,8 @@ exports.seed = (knex) => {
         {
           id: 2,
           name: 'Joanderson santos',
+          email: 'pessoa2@pessoa2.com',
+          password: 'pessoa2',
           age: 19,
           city: 'Candeias',
           bloodType: 'O',
@@ -30,6 +34,8 @@ exports.seed = (knex) => {
         {
           id: 3,
           name: 'Jefferson Eloy',
+          email: 'pessoa3@pessoa3.com',
+          password: 'pessoa3',
           age: 19,
           city: 'Candeias',
           bloodType: 'A',
@@ -41,6 +47,8 @@ exports.seed = (knex) => {
         {
           id: 4,
           name: 'Guilherme Caires',
+          email: 'pessoa4@pessoa4.com',
+          password: 'pessoa4',
           age: 19,
           city: 'Madre de Deus',
           bloodType: 'B',
@@ -52,6 +60,8 @@ exports.seed = (knex) => {
         {
           id: 5,
           name: 'João dos Santos',
+          email: 'pessoa5@pessoa5.com',
+          password: 'pessoa5',
           age: 17,
           city: 'Camaçari',
           bloodType: 'O',
@@ -63,6 +73,8 @@ exports.seed = (knex) => {
         {
           id: 6,
           name: 'Jennifer Brito',
+          email: 'pessoa6@pessoa6.com',
+          password: 'pessoa6',
           age: 16,
           city: 'Camaçari',
           bloodType: 'A',
@@ -74,6 +86,8 @@ exports.seed = (knex) => {
         {
           id: 7,
           name: 'Douglas Santana',
+          email: 'pessoa7@pessoa7.com',
+          password: 'pessoa7',
           age: 25,
           city: 'São Francisco do Conde',
           bloodType: 'A',
@@ -85,6 +99,8 @@ exports.seed = (knex) => {
         {
           id: 8,
           name: 'Loxt',
+          email: 'pessoa8@pessoa8.com',
+          password: 'pessoa8',
           age: 16,
           city: 'Candeias',
           bloodType: 'AB',
@@ -96,6 +112,8 @@ exports.seed = (knex) => {
         {
           id: 9,
           name: 'Bianca santos',
+          email: 'pessoa9@pessoa9.com',
+          password: 'pessoa9',
           age: 23,
           city: 'São Francisco do Conde',
           bloodType: 'AB',
@@ -107,6 +125,8 @@ exports.seed = (knex) => {
         {
           id: 10,
           name: 'Fernanda',
+          email: 'pessoa1@pessoa1.com',
+          password: 'pessoa1',
           age: 16,
           city: 'Candeias',
           bloodType: 'AB',

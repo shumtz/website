@@ -8,6 +8,8 @@ exports.seed = (knex) => {
         {
           id: 1,
           name: 'Fernando Albuquerque',
+          email: 'medico1@medico1.com',
+          password: 'medico1',
           uf: 'BA',
           municipality: 'Candeias',
           crm: '00000000',
@@ -19,6 +21,8 @@ exports.seed = (knex) => {
         {
           id: 2,
           name: 'Iago Santana',
+          email: 'medico2@medico2.com',
+          password: 'medico2',
           uf: 'BA',
           municipality: 'Camaçari',
           crm: '00000000',
@@ -30,6 +34,8 @@ exports.seed = (knex) => {
         {
           id: 3,
           name: 'Thais Gusmão',
+          email: 'medico3@medico3.com',
+          password: 'medico3',
           uf: 'RJ',
           municipality: 'Candeias',
           crm: '00000000',
@@ -41,6 +47,8 @@ exports.seed = (knex) => {
         {
           id: 4,
           name: 'Beatriz dos santos',
+          email: 'medico4@medico4.com',
+          password: 'medico4',
           uf: 'SP',
           municipality: 'Araçás',
           crm: '00000000',
@@ -52,6 +60,8 @@ exports.seed = (knex) => {
         {
           id: 5,
           name: 'Yasmin Santana',
+          email: 'medico5@medico5.com',
+          password: 'medico5',
           uf: 'SC',
           municipality: 'Araci',
           crm: '00000000',
@@ -63,6 +73,8 @@ exports.seed = (knex) => {
         {
           id: 6,
           name: 'Emmely Lima',
+          email: 'medico6@medico6.com',
+          password: 'medico6',
           uf: 'MT',
           municipality: 'Araçoiaba',
           crm: '00000000',
@@ -74,6 +86,8 @@ exports.seed = (knex) => {
         {
           id: 7,
           name: 'Sandryelle Borges',
+          email: 'medico7@medico7.com',
+          password: 'medico7',
           uf: 'DF',
           municipality: 'Araçoiaba',
           crm: '00000000',
@@ -85,6 +99,8 @@ exports.seed = (knex) => {
         {
           id: 8,
           name: 'Fernando Lima',
+          email: 'medico8@medico8.com',
+          password: 'medico8',
           uf: 'BA',
           municipality: 'Araçatuba',
           crm: '00000000',
@@ -96,6 +112,8 @@ exports.seed = (knex) => {
         {
           id: 9,
           name: 'Diego Santana',
+          email: 'medico9@medico9.com',
+          password: 'medico9',
           uf: 'MT',
           municipality: 'Camaçari',
           crm: '00000000',
@@ -107,6 +125,8 @@ exports.seed = (knex) => {
         {
           id: 10,
           name: 'Jessica Santos',
+          email: 'medico1@medico1.com',
+          password: 'medico1',
           uf: 'MT',
           municipality: 'Araçatuba',
           crm: '00000000',

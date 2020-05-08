@@ -3,6 +3,8 @@ exports.up = function up(knex) {
     table.string('id').primary();
 
     table.string('name').notNullable();
+    table.string('email').notNullable();
+    table.string('password').notNullable();
     table.string('uf').notNullable();
     table.string('municipality').notNullable();
     table.string('crm').notNullable();
@@ -11,8 +13,8 @@ exports.up = function up(knex) {
     table.string('situation').notNullable();
     table.string('actuationArea');
 
-    table.timestamp('created_at').defaultTo(knex.fn.now());
-    table.timestamp('updated_at').defaultTo(knex.fn.now());
+    table.timestamp('createdAt').defaultTo(knex.fn.now());
+    table.timestamp('updatedAt').defaultTo(knex.fn.now());
   });
 };
 

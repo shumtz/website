@@ -4,58 +4,59 @@ const generateId = require('../util/generateId');
 
 module.exports = {
   async index(req, res) {
-    const doctors = await connection('doctors').select('*');
+    const patients = await connection('patients').select('*');
 
-    return res.json(doctors);
+    return res.json(patients);
   },
   async create(req, res, next) {
     try {
       const {
         name,
+        age,
         email,
         password,
-        uf,
-        municipality,
-        crm,
-        subscriptionType,
-        speciality,
-        situation,
-        actuationArea,
+        city,
+        bloodType,
+        weight,
+        height,
+        problem,
+        historic,
       } = req.body;
-
-      const id = generateId();
       const passwordHash = await bcrypt.hash(password, 8);
 
-      const doctor = await connection('doctors').insert({
+      const id = generateId();
+
+      const data = {
         id,
         name,
+        age,
         email,
         password: passwordHash,
-        uf,
-        municipality,
-        crm,
-        subscriptionType,
-        speciality,
-        situation,
-        actuationArea,
-      });
+        city,
+        bloodType,
+        weight,
+        height,
+        problem,
+        historic,
+      };
 
-      if (doctor) {
+      const patient = await connection('patients').insert(data);
+
+      if (patient) {
         res
-          .cookie('email', email, {
+          .cookie('email', data.email, {
             maxAge: 7 * 24 * 60 * 60000,
           })
           .cookie('password', passwordHash, {
             maxAge: 7 * 24 * 60 * 60000,
           });
-        return res.status(201).send();
+        return res.status(201).send(data);
       }
-
-      return res.status(201).send(doctor);
     } catch (error) {
       next(error);
     }
   },
+
   async update(req, res, next) {
     try {
       if (!req.cookies.email && !req.cookies.password) {
@@ -65,29 +66,34 @@ module.exports = {
       const { id } = req.params;
       const {
         name,
-        municipality,
+        age,
         email,
         password,
-        situation,
-        subscriptionType,
+        city,
+        weight,
+        height,
+        problem,
+        historic,
       } = req.body;
 
       const passwordHash = await bcrypt.hash(password, 8);
 
-      await connection('doctors')
-        .update({
-          name,
-          email,
-          password: passwordHash,
-          municipality,
-          situation,
-          subscriptionType,
-        })
-        .where({
-          id,
-        });
+      const data = {
+        name,
+        email,
+        password: passwordHash,
+        age,
+        city,
+        weight,
+        height,
+        problem,
+        historic,
+      };
 
-      return res.send();
+      await connection('patients').update(data).where({
+        id,
+      });
+      return res.json(data);
     } catch (error) {
       next(error);
     }
@@ -101,29 +107,29 @@ module.exports = {
       const { id } = req.params;
       const {
         name,
-        uf,
+        age,
+        city,
         email,
         password,
-        municipality,
-        crm,
-        subscriptionType,
-        speciality,
-        situation,
-        actuationArea,
+        bloodType,
+        weight,
+        height,
+        problem,
+        historic,
       } = req.body;
 
-      const data = await connection('doctors')
+      const data = await connection('patients')
         .select(
           name,
-          uf,
+          age,
+          city,
           email,
           password,
-          municipality,
-          crm,
-          subscriptionType,
-          speciality,
-          situation,
-          actuationArea
+          bloodType,
+          weight,
+          height,
+          problem,
+          historic
         )
         .where({
           id,
@@ -143,7 +149,7 @@ module.exports = {
 
       const { id } = req.params;
 
-      await connection('doctors')
+      await connection('patients')
         .where({
           id,
         })
