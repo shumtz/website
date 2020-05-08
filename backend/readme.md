@@ -6,7 +6,7 @@ Banco de dados:
 - Crie a ".env" semelhante à ".env.example" com database, port, etc..
 - Use yarn knex migrate:latest
 - Se estiver usando docker, use "docker-compose up -d", caso contrário coloque o usuário e senha que você tem no seu banco
-- Inicie o projeto com npm start.
+- Inicie o projeto com yarn start.
 
 #
 

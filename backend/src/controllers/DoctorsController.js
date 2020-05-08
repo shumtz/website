@@ -1,6 +1,6 @@
-const crypto = require('crypto');
 const bcrypt = require('bcrypt');
 const connection = require('../database/connection');
+const generateId = require('../util/generateId');
 
 module.exports = {
   async index(req, res) {
@@ -23,7 +23,7 @@ module.exports = {
         actuationArea,
       } = req.body;
 
-      const id = crypto.randomBytes(4).toString('HEX');
+      const id = generateId();
       const passwordHash = await bcrypt.hash(password, 8);
 
       const doctor = await connection('doctors').insert({
