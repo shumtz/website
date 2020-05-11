@@ -1,9 +1,14 @@
 import React from 'react';
 
+import './global.css';
+import LeftSide from './components/LeftSide';
+import RightSide from './components/RightSide';
+
 function App() {
   return (
     <>
-      <p>O lóquisti é gostoso d+</p>
+      <LeftSide />
+      <RightSide />
     </>
   );
 }
