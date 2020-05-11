@@ -1,7 +1,7 @@
 # Desenvolvimento
 
 ### Equipe projeto Health World Data
-- Giovanni (CEO) - Programador Full Stack.
+- Giovanni - Programador Full Stack.
 - Emannuel - Programador Full Stack.
 - Armando - Programador Frontend.
 - Joanderson - Programador Full Stack.
