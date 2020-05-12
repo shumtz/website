@@ -13,3 +13,7 @@ html, body, #root {
   display: flex;
   background-color: #e7e7e7;
 }
+
+button {
+  cursor: pointer;
+}
