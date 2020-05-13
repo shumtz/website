@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import InitialPage from './pages/InitialPage';
-import RegisterPage from './pages/RegisterPage'
+import RegisterPage from './pages/RegisterPage';
 
 export default function Routes() {
   return (

@@ -5,9 +5,30 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
 
+  @media (max-width: 738px) {
+    margin: 0;
+    padding: 0;
+  }
+
+  input {
+    @media (max-width: 738px) {
+      width: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+
+      margin: 0 0 5px;
+    }
+  }
+
   .heartBackground {
     position: absolute;
     left: 120vh;
+
+    @media (max-width: 738px) {
+      display: none;
+    }
   }
   @media only screen and (max-width: 1360px) {
     .heartBackground {
@@ -37,6 +58,14 @@ export const Form = styled.div`
     font-size: 18px;
     transition: 0.5s;
 
+    @media (max-width: 738px) {
+      width: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
     :hover {
       opacity: 0.9;
     }
@@ -50,15 +79,30 @@ export const Form = styled.div`
     margin-top: 10px;
     text-align: right;
     color: #373b53;
+    @media (max-width: 738px) {
+      width: 80%;
+      display: flex;
+      align-items: center;
+      justify-content: right;
+      font-size: 14px;
+    }
   }
 
   h2 {
     padding-bottom: 20px;
-    font-family: Raleway;
+    font-family: Raleway, sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 40px;
     line-height: 59px;
+
+    @media (max-width: 738px) {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: left;
+      font-size: 24px;
+    }
   }
 
   @media only screen and (max-width: 1200px) {
@@ -94,10 +138,16 @@ export const Pacient = styled.div`
     :hover {
       opacity: 0.9;
     }
+
+    @media (max-width: 738px) {
+      display: none;
+    }
   }
+
   @media only screen and (min-width: 1200px) {
     top: 87vh;
   }
 `;
 
+// loxt fudeu o css
 // DEPOIS EU VOU ARRUMAR SA PORRA DE CSS
