@@ -3,11 +3,12 @@ import styled from 'styled-components';
 import logoWithText from '../../assets/logo-with-text.png';
 
 export const Container = styled.div`
-  width: 300px;
+  width: 190px;
   height: 100vh;
   background-color: #373b53;
   display: flex;
   flex-direction: column;
+  position: fixed;
 `;
 
 export const LogoContainer = styled.div`
@@ -34,6 +35,7 @@ export const Item = styled.div`
   height: 120px;
   padding: 50px;
   background: url(${({ image }) => image}) no-repeat top;
+  cursor: pointer;
 
   .itemText {
     margin-top: 30px;
@@ -41,7 +43,6 @@ export const Item = styled.div`
     font-size: 18px;
     text-decoration: none;
   }
-
 `;
 
 export const SupportItem = styled.div`

@@ -7,28 +7,24 @@ export const Container = styled.div`
 
   .heartBackground {
     position: absolute;
-    left: 105vh;
+    left: 120vh;
+  }
+  @media only screen and (max-width: 1360px) {
+    .heartBackground {
+      width: 50vh;
+      height: 50vh;
+      left: 140vh;
+    }
   }
 `;
 
 export const Form = styled.div`
   display: block;
   position: absolute;
-  width: 50vh;
+  width: 70vh;
   height: 62.72px;
-  left: 440px;
-
-  input {
-    margin-top: 10px;
-    width: 100%;
-    height: 60px;
-    color: #333;
-    border: 1px solid #373b53;
-    padding: 0 24px;
-    box-sizing: border-box;
-    border-radius: 20px;
-    font-size: 18px;
-  }
+  top: 30vh;
+  left: 40vh;
 
   button {
     margin-top: 10px;
@@ -61,29 +57,23 @@ export const Form = styled.div`
     font-family: Raleway;
     font-style: normal;
     font-weight: bold;
-    font-size: 50px;
+    font-size: 40px;
     line-height: 59px;
-    text-align: center;
+  }
+
+  @media only screen and (max-width: 1200px) {
+    top: 27vh;
+    left: 55vh;
+    width: 60vh;
+  }
+  @media only screen and (max-width: 480px) {
+    top: 27vh;
+    left: 08vh;
+    width: 60vh;
   }
 `;
 
-export const Icon = styled.div`
-  position: absolute;
-  left: 65vh;
-  top: 33vh;
-  height: 10vh;
-  width: 10vh;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-
-  img {
-    position: absolute;
-    top: 10px;
-    left: 15px;
-  }
-`;
-export const Register = styled.div`
+export const Pacient = styled.div`
   position: absolute;
   width: 308px;
   height: 68px;
@@ -104,6 +94,9 @@ export const Register = styled.div`
     :hover {
       opacity: 0.9;
     }
+  }
+  @media only screen and (min-width: 1200px) {
+    top: 87vh;
   }
 `;
 
