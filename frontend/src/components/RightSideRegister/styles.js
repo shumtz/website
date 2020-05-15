@@ -1,16 +1,13 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  align-items: center;
+  width: 100%;
+
   display: flex;
+  justify-content: space-between;
 `;
 
 export const Form = styled.div`
-  position: absolute;
-  left: 40vh;
-  width: 90vh;
-  margin: 60px;
-
   button {
     margin-top: 10px;
     background: #164c7a;
