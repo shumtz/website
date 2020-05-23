@@ -1,12 +1,10 @@
 import React from 'react';
-import LeftSide from '../../components/LeftSide';
-import RightSide from '../../components/RightSide';
+import Index from '../../components/Index';
 
 function InitialPage() {
   return (
     <>
-      <LeftSide />
-      <RightSide />
+      <Index />
     </>
   );
 }
