@@ -1,6 +1,6 @@
 # Desenvolvimento
 
-### Equipe projeto Health World Data
+### Equipe DreamSaved
 - Giovanni (Fundador) - Programador Full Stack.
 - Emannuel (Co-fundador) - Programador Full Stack.
 - Armando (Co-fundador) - Programador Frontend.
