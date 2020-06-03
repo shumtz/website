@@ -1,10 +1,12 @@
 import React from 'react';
-import Index from '../../components/Index';
+import Navbar from '../../components/Navbar';
+import Content from '../../components/Content';
 
 function InitialPage() {
   return (
     <>
-      <Index />
+      <Navbar />
+      <Content />
     </>
   );
 }

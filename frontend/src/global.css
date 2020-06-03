@@ -1,9 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Roboto');
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   outline: 0;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
+}
+
+button {
+	cursor: pointer;
+}
+
+input {
+  height: 40px;
+  background: #FFFFFF;
+  border: 1px solid #D9D0E3;
+  box-sizing: border-box;
+  border-radius: 8px;
 }
