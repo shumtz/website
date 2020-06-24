@@ -2,12 +2,14 @@
 
 ![DreamSaved](64819777.png)
 
+# (PROJETO ABANDONADO)
+
 ### Equipe DreamSaved
-- Giovanni (Fundador) - Programador Full Stack.
-- Emannuel (Co-fundador) - Programador Full Stack.
-- Armando (Co-fundador) - Programador Frontend.
-- Joanderson (Co-fundador) - Programador Full Stack.
-- Allan - Programador
+- Giovanni 
+- Emannuel
+- Armando
+- Joanderson
+- Allan
 
 ### Github e Trello
 Vamos usar o **Github** para fazer o versionamento de código, que consiste em hospedar todo o código do projeto em um repositório privado, com isso conseguimos hospedar todas as versões do código sem nenhuma dor de cabeça, com as branch’s Master (código final) e Develop (código de desenvolvimento), nós vamos codar tudo em novas branch’s, exemplo: backend-criacao-de-login, feito isso, vamos analisar essa Pull-Request e ver se não existe nenhum erro, se estiver tudo bem, o seu código vai para a Develop, quando tudo estiver testado e funcionando nós mandamos para a Master, com isso temos o controle do código, desde bug até o código limpo.
